@@ -1,4 +1,4 @@
-import { DateTime } from 'luxon';
+import { Temporal } from 'temporal-polyfill';
 
 import { Calendar, Long_MIN_VALUE, TimeZone } from './polyfills/Utils';
 import { GeoLocation } from './util/GeoLocation';
@@ -675,7 +675,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *
    * @see #getShaahZmanis120MinutesZmanis()
    */
-  public getPlagHamincha120MinutesZmanis(): DateTime | null {
+  public getPlagHamincha120MinutesZmanis(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos120Zmanis(), this.getTzais120Zmanis());
   }
 
@@ -692,7 +692,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *
    * @see #getShaahZmanis120Minutes()
    */
-  public getPlagHamincha120Minutes(): DateTime | null {
+  public getPlagHamincha120Minutes(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos120(), this.getTzais120());
   }
 
@@ -726,7 +726,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *
    * @see #getTzaisGeonim9Point75Degrees()
    */
-  public getAlos60(): DateTime | null {
+  public getAlos60(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getSunrise(), -60 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -746,7 +746,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    * @see #getShaahZmanisGra()
    */
-  public getAlos72Zmanis(): DateTime | null {
+  public getAlos72Zmanis(): Temporal.ZonedDateTime | null {
     return this.getZmanisBasedOffset(-1.2);
   }
 
@@ -763,7 +763,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         a null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar}
    *         documentation.
    */
-  public getAlos96(): DateTime | null {
+  public getAlos96(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getElevationAdjustedSunrise(), -96 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -782,7 +782,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    * @see #getShaahZmanisGra()
    */
-  public getAlos90Zmanis(): DateTime | null {
+  public getAlos90Zmanis(): Temporal.ZonedDateTime | null {
     return this.getZmanisBasedOffset(-1.5);
   }
 
@@ -801,7 +801,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    * @see #getShaahZmanisGra()
    */
-  public getAlos96Zmanis(): DateTime | null {
+  public getAlos96Zmanis(): Temporal.ZonedDateTime | null {
     return this.getZmanisBasedOffset(-1.6);
   }
 
@@ -816,7 +816,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         a null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar}
    *         documentation.
    */
-  public getAlos90(): DateTime | null {
+  public getAlos90(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getElevationAdjustedSunrise(), -90 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -831,7 +831,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         a null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar}
    *         documentation.
    */
-  public getAlos120(): DateTime | null {
+  public getAlos120(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getElevationAdjustedSunrise(), -120 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -850,7 +850,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    * @see #getShaahZmanisGra()
    */
-  public getAlos120Zmanis(): DateTime | null {
+  public getAlos120Zmanis(): Temporal.ZonedDateTime | null {
     return this.getZmanisBasedOffset(-2);
   }
 
@@ -870,7 +870,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getAlos120()
    * @see #getTzais120()
    */
-  public getAlos26Degrees(): DateTime | null {
+  public getAlos26Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunriseOffsetByDegrees(ComplexZmanimCalendar.ZENITH_26_DEGREES);
   }
 
@@ -884,7 +884,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         explanation on top of the {@link AstronomicalCalendar} documentation.
    * @see #ASTRONOMICAL_ZENITH
    */
-  public getAlos18Degrees(): DateTime | null {
+  public getAlos18Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunriseOffsetByDegrees(ComplexZmanimCalendar.ASTRONOMICAL_ZENITH);
   }
 
@@ -903,7 +903,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         explanation on top of the {@link AstronomicalCalendar} documentation.
    * @see #ASTRONOMICAL_ZENITH
    */
-  public getAlos19Degrees(): DateTime | null {
+  public getAlos19Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunriseOffsetByDegrees(ComplexZmanimCalendar.ZENITH_19_DEGREES);
   }
 
@@ -922,7 +922,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #ZENITH_19_POINT_8
    * @see #getAlos90()
    */
-  public getAlos19Point8Degrees(): DateTime | null {
+  public getAlos19Point8Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunriseOffsetByDegrees(ComplexZmanimCalendar.ZENITH_19_POINT_8);
   }
 
@@ -941,7 +941,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #ZENITH_16_POINT_1
    * @see #getAlos72()
    */
-  public getAlos16Point1Degrees(): DateTime | null {
+  public getAlos16Point1Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunriseOffsetByDegrees(ComplexZmanimCalendar.ZENITH_16_POINT_1);
   }
 
@@ -959,7 +959,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         explanation on top of the {@link AstronomicalCalendar} documentation.
    * @see #ZENITH_11_POINT_5
    */
-  public getMisheyakir11Point5Degrees(): DateTime | null {
+  public getMisheyakir11Point5Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunriseOffsetByDegrees(ComplexZmanimCalendar.ZENITH_11_POINT_5);
   }
 
@@ -977,7 +977,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         {@link AstronomicalCalendar} documentation.
    * @see #ZENITH_11_DEGREES
    */
-  public getMisheyakir11Degrees(): DateTime | null {
+  public getMisheyakir11Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunriseOffsetByDegrees(ComplexZmanimCalendar.ZENITH_11_DEGREES);
   }
 
@@ -995,7 +995,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         detailed explanation on top of the {@link AstronomicalCalendar} documentation.
    * @see #ZENITH_10_POINT_2
    */
-  public getMisheyakir10Point2Degrees(): DateTime | null {
+  public getMisheyakir10Point2Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunriseOffsetByDegrees(ComplexZmanimCalendar.ZENITH_10_POINT_2);
   }
 
@@ -1027,7 +1027,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #ZENITH_7_POINT_65
    * @see #getMisheyakir9Point5Degrees()
    */
-  public getMisheyakir7Point65Degrees(): DateTime | null {
+  public getMisheyakir7Point65Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunriseOffsetByDegrees(ComplexZmanimCalendar.ZENITH_7_POINT_65);
   }
 
@@ -1054,7 +1054,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #ZENITH_9_POINT_5
    * @see #getMisheyakir7Point65Degrees()
    */
-  public getMisheyakir9Point5Degrees(): DateTime | null {
+  public getMisheyakir9Point5Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunriseOffsetByDegrees(ComplexZmanimCalendar.ZENITH_9_POINT_5);
   }
 
@@ -1073,7 +1073,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis19Point8Degrees()
    * @see #getAlos19Point8Degrees()
    */
-  public getSofZmanShmaMGA19Point8Degrees(): DateTime | null {
+  public getSofZmanShmaMGA19Point8Degrees(): Temporal.ZonedDateTime | null {
     return this.getSofZmanShma(this.getAlos19Point8Degrees(), this.getTzais19Point8Degrees());
   }
 
@@ -1091,7 +1091,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis16Point1Degrees()
    * @see #getAlos16Point1Degrees()
    */
-  public getSofZmanShmaMGA16Point1Degrees(): DateTime | null {
+  public getSofZmanShmaMGA16Point1Degrees(): Temporal.ZonedDateTime | null {
     return this.getSofZmanShma(this.getAlos16Point1Degrees(), this.getTzais16Point1Degrees());
   }
 
@@ -1110,7 +1110,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis18Degrees()
    * @see #getAlos18Degrees()
    */
-  public getSofZmanShmaMGA18Degrees(): DateTime | null {
+  public getSofZmanShmaMGA18Degrees(): Temporal.ZonedDateTime | null {
     return this.getSofZmanShma(this.getAlos18Degrees(), this.getTzais18Degrees());
   }
 
@@ -1131,7 +1131,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getAlos72()
    * @see #getSofZmanShmaMGA()
    */
-  public getSofZmanShmaMGA72Minutes(): DateTime | null {
+  public getSofZmanShmaMGA72Minutes(): Temporal.ZonedDateTime | null {
     return this.getSofZmanShmaMGA();
   }
 
@@ -1153,7 +1153,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis72MinutesZmanis()
    * @see #getAlos72Zmanis()
    */
-  public getSofZmanShmaMGA72MinutesZmanis(): DateTime | null {
+  public getSofZmanShmaMGA72MinutesZmanis(): Temporal.ZonedDateTime | null {
     return this.getSofZmanShma(this.getAlos72Zmanis(), this.getTzais72Zmanis());
   }
 
@@ -1173,7 +1173,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis90Minutes()
    * @see #getAlos90()
    */
-  public getSofZmanShmaMGA90Minutes(): DateTime | null {
+  public getSofZmanShmaMGA90Minutes(): Temporal.ZonedDateTime | null {
     return this.getSofZmanShma(this.getAlos90(), this.getTzais90());
   }
 
@@ -1194,7 +1194,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis90MinutesZmanis()
    * @see #getAlos90Zmanis()
    */
-  public getSofZmanShmaMGA90MinutesZmanis(): DateTime | null {
+  public getSofZmanShmaMGA90MinutesZmanis(): Temporal.ZonedDateTime | null {
     return this.getSofZmanShma(this.getAlos90Zmanis(), this.getTzais90Zmanis());
   }
 
@@ -1213,7 +1213,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis96Minutes()
    * @see #getAlos96()
    */
-  public getSofZmanShmaMGA96Minutes(): DateTime | null {
+  public getSofZmanShmaMGA96Minutes(): Temporal.ZonedDateTime | null {
     return this.getSofZmanShma(this.getAlos96(), this.getTzais96());
   }
 
@@ -1234,7 +1234,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis96MinutesZmanis()
    * @see #getAlos96Zmanis()
    */
-  public getSofZmanShmaMGA96MinutesZmanis(): DateTime | null {
+  public getSofZmanShmaMGA96MinutesZmanis(): Temporal.ZonedDateTime | null {
     return this.getSofZmanShma(this.getAlos96Zmanis(), this.getTzais96Zmanis());
   }
 
@@ -1251,7 +1251,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see ZmanimCalendar#getChatzos()
    * @see #getSofZmanTfila2HoursBeforeChatzos()
    */
-  public getSofZmanShma3HoursBeforeChatzos(): DateTime | null {
+  public getSofZmanShma3HoursBeforeChatzos(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getChatzos(), -180 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -1271,7 +1271,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis120Minutes()
    * @see #getAlos120()
    */
-  public getSofZmanShmaMGA120Minutes(): DateTime | null {
+  public getSofZmanShmaMGA120Minutes(): Temporal.ZonedDateTime | null {
     return this.getSofZmanShma(this.getAlos120(), this.getTzais120());
   }
 
@@ -1296,7 +1296,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getAlos16Point1Degrees()
    * @see #getSeaLevelSunset()
    */
-  public getSofZmanShmaAlos16Point1ToSunset(): DateTime | null {
+  public getSofZmanShmaAlos16Point1ToSunset(): Temporal.ZonedDateTime | null {
     return this.getSofZmanShma(this.getAlos16Point1Degrees(), this.getElevationAdjustedSunset());
   }
 
@@ -1318,7 +1318,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getAlos16Point1Degrees()
    * @see #getTzaisGeonim7Point083Degrees()
    */
-  public getSofZmanShmaAlos16Point1ToTzaisGeonim7Point083Degrees(): DateTime | null {
+  public getSofZmanShmaAlos16Point1ToTzaisGeonim7Point083Degrees(): Temporal.ZonedDateTime | null {
     return this.getSofZmanShma(this.getAlos16Point1Degrees(), this.getTzaisGeonim7Point083Degrees());
   }
 
@@ -1337,12 +1337,12 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         Vehazmanim was based on a misunderstanding and should not be used. This deprecated will be removed pending
    *         confirmation from Rabbi Harfenes.
    */
-  public getSofZmanShmaKolEliyahu(): DateTime | null {
-    const chatzos: DateTime | null = this.getFixedLocalChatzos();
+  public getSofZmanShmaKolEliyahu(): Temporal.ZonedDateTime | null {
+    const chatzos: Temporal.ZonedDateTime | null = this.getFixedLocalChatzos();
     if (chatzos === null || this.getSunrise() === null) {
       return null;
     }
-    const diff: number = (chatzos.valueOf() - this.getElevationAdjustedSunrise()!.valueOf()) / 2;
+    const diff: number = (chatzos.epochMilliseconds - this.getElevationAdjustedSunrise()!.epochMilliseconds) / 2;
     return ComplexZmanimCalendar.getTimeOffset(chatzos, -diff);
   }
 
@@ -1362,7 +1362,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis19Point8Degrees()
    * @see #getAlos19Point8Degrees()
    */
-  public getSofZmanTfilaMGA19Point8Degrees(): DateTime | null {
+  public getSofZmanTfilaMGA19Point8Degrees(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfila(this.getAlos19Point8Degrees(), this.getTzais19Point8Degrees());
   }
 
@@ -1382,7 +1382,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis16Point1Degrees()
    * @see #getAlos16Point1Degrees()
    */
-  public getSofZmanTfilaMGA16Point1Degrees(): DateTime | null {
+  public getSofZmanTfilaMGA16Point1Degrees(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfila(this.getAlos16Point1Degrees(), this.getTzais16Point1Degrees());
   }
 
@@ -1402,7 +1402,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis18Degrees()
    * @see #getAlos18Degrees()
    */
-  public getSofZmanTfilaMGA18Degrees(): DateTime | null {
+  public getSofZmanTfilaMGA18Degrees(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfila(this.getAlos18Degrees(), this.getTzais18Degrees());
   }
 
@@ -1423,7 +1423,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getAlos72()
    * @see #getSofZmanShmaMGA()
    */
-  public getSofZmanTfilaMGA72Minutes(): DateTime | null {
+  public getSofZmanTfilaMGA72Minutes(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfilaMGA();
   }
 
@@ -1443,7 +1443,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis72MinutesZmanis()
    * @see #getAlos72Zmanis()
    */
-  public getSofZmanTfilaMGA72MinutesZmanis(): DateTime | null {
+  public getSofZmanTfilaMGA72MinutesZmanis(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfila(this.getAlos72Zmanis(), this.getTzais72Zmanis());
   }
 
@@ -1462,7 +1462,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis90Minutes()
    * @see #getAlos90()
    */
-  public getSofZmanTfilaMGA90Minutes(): DateTime | null {
+  public getSofZmanTfilaMGA90Minutes(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfila(this.getAlos90(), this.getTzais90());
   }
 
@@ -1482,7 +1482,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis90MinutesZmanis()
    * @see #getAlos90Zmanis()
    */
-  public getSofZmanTfilaMGA90MinutesZmanis(): DateTime | null {
+  public getSofZmanTfilaMGA90MinutesZmanis(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfila(this.getAlos90Zmanis(), this.getTzais90Zmanis());
   }
 
@@ -1501,7 +1501,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis96Minutes()
    * @see #getAlos96()
    */
-  public getSofZmanTfilaMGA96Minutes(): DateTime | null {
+  public getSofZmanTfilaMGA96Minutes(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfila(this.getAlos96(), this.getTzais96());
   }
 
@@ -1521,7 +1521,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis90MinutesZmanis()
    * @see #getAlos90Zmanis()
    */
-  public getSofZmanTfilaMGA96MinutesZmanis(): DateTime | null {
+  public getSofZmanTfilaMGA96MinutesZmanis(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfila(this.getAlos96Zmanis(), this.getTzais96Zmanis());
   }
 
@@ -1540,7 +1540,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis120Minutes()
    * @see #getAlos120()
    */
-  public getSofZmanTfilaMGA120Minutes(): DateTime | null {
+  public getSofZmanTfilaMGA120Minutes(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfila(this.getAlos120(), this.getTzais120());
   }
 
@@ -1558,7 +1558,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see ZmanimCalendar#getChatzos()
    * @see #getSofZmanShma3HoursBeforeChatzos()
    */
-  public getSofZmanTfila2HoursBeforeChatzos(): DateTime | null {
+  public getSofZmanTfila2HoursBeforeChatzos(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getChatzos(), -120 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -1580,7 +1580,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getMinchaGedola()
    * @see #getMinchaGedolaGreaterThan30()
    */
-  public getMinchaGedola30Minutes(): DateTime | null {
+  public getMinchaGedola30Minutes(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getChatzos(), ComplexZmanimCalendar.MINUTE_MILLIS * 30);
   }
 
@@ -1600,7 +1600,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         not set, a null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar}
    *         documentation.
    */
-  public getMinchaGedola72Minutes(): DateTime | null {
+  public getMinchaGedola72Minutes(): Temporal.ZonedDateTime | null {
     return this.getMinchaGedola(this.getAlos72(), this.getTzais72());
   }
 
@@ -1619,7 +1619,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         may not reach low enough below the horizon for this calculation, a null will be returned. See detailed
    *         explanation on top of the {@link AstronomicalCalendar} documentation.
    */
-  public getMinchaGedola16Point1Degrees(): DateTime | null {
+  public getMinchaGedola16Point1Degrees(): Temporal.ZonedDateTime | null {
     return this.getMinchaGedola(this.getAlos16Point1Degrees(), this.getTzais16Point1Degrees());
   }
 
@@ -1634,12 +1634,14 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         where the sun does not rise, and one where it does not set, a null will be returned. See detailed
    *         explanation on top of the {@link AstronomicalCalendar} documentation.
    */
-  public getMinchaGedolaGreaterThan30(): DateTime | null {
-    if (this.getMinchaGedola30Minutes() === null || this.getMinchaGedola() === null) {
+  public getMinchaGedolaGreaterThan30(): Temporal.ZonedDateTime | null {
+    const mg30 = this.getMinchaGedola30Minutes();
+    const mg = this.getMinchaGedola();
+    if (mg30 === null || mg === null) {
       return null;
     }
 
-    return DateTime.max(this.getMinchaGedola30Minutes()!, this.getMinchaGedola()!);
+    return Temporal.ZonedDateTime.compare(mg30!, mg!) > 0 ? mg30 : mg;
   }
 
   /**
@@ -1657,7 +1659,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         may not reach low enough below the horizon for this calculation, a null will be returned. See detailed
    *         explanation on top of the {@link AstronomicalCalendar} documentation.
    */
-  public getMinchaKetana16Point1Degrees(): DateTime | null {
+  public getMinchaKetana16Point1Degrees(): Temporal.ZonedDateTime | null {
     return this.getMinchaKetana(this.getAlos16Point1Degrees(), this.getTzais16Point1Degrees());
   }
 
@@ -1676,7 +1678,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         not set, a null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar}
    *         documentation.
    */
-  public getMinchaKetana72Minutes(): DateTime | null {
+  public getMinchaKetana72Minutes(): Temporal.ZonedDateTime | null {
     return this.getMinchaKetana(this.getAlos72(), this.getTzais72());
   }
 
@@ -1693,7 +1695,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *
    * @see #getShaahZmanis60Minutes()
    */
-  public getPlagHamincha60Minutes(): DateTime | null {
+  public getPlagHamincha60Minutes(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos60(), this.getTzais60());
   }
 
@@ -1710,7 +1712,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *
    * @see #getShaahZmanis72Minutes()
    */
-  public getPlagHamincha72Minutes(): DateTime | null {
+  public getPlagHamincha72Minutes(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos72(), this.getTzais72());
   }
 
@@ -1727,7 +1729,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *
    * @see #getShaahZmanis90Minutes()
    */
-  public getPlagHamincha90Minutes(): DateTime | null {
+  public getPlagHamincha90Minutes(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos90(), this.getTzais90());
   }
 
@@ -1743,7 +1745,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         {@link AstronomicalCalendar} documentation.
    * @see #getShaahZmanis96Minutes()
    */
-  public getPlagHamincha96Minutes(): DateTime | null {
+  public getPlagHamincha96Minutes(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos96(), this.getTzais96());
   }
 
@@ -1757,7 +1759,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         does not set, a null will be returned. See detailed explanation on top of the
    *         {@link AstronomicalCalendar} documentation.
    */
-  public getPlagHamincha96MinutesZmanis(): DateTime | null {
+  public getPlagHamincha96MinutesZmanis(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos96Zmanis(), this.getTzais96Zmanis());
   }
 
@@ -1771,7 +1773,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         does not set, a null will be returned. See detailed explanation on top of the
    *         {@link AstronomicalCalendar} documentation.
    */
-  public getPlagHamincha90MinutesZmanis(): DateTime | null {
+  public getPlagHamincha90MinutesZmanis(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos90Zmanis(), this.getTzais90Zmanis());
   }
 
@@ -1785,7 +1787,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         does not set, a null will be returned. See detailed explanation on top of the
    *         {@link AstronomicalCalendar} documentation.
    */
-  public getPlagHamincha72MinutesZmanis(): DateTime | null {
+  public getPlagHamincha72MinutesZmanis(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos72Zmanis(), this.getTzais72Zmanis());
   }
 
@@ -1803,7 +1805,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *
    * @see #getShaahZmanis16Point1Degrees()
    */
-  public getPlagHamincha16Point1Degrees(): DateTime | null {
+  public getPlagHamincha16Point1Degrees(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos16Point1Degrees(), this.getTzais16Point1Degrees());
   }
 
@@ -1821,7 +1823,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *
    * @see #getShaahZmanis19Point8Degrees()
    */
-  public getPlagHamincha19Point8Degrees(): DateTime | null {
+  public getPlagHamincha19Point8Degrees(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos19Point8Degrees(), this.getTzais19Point8Degrees());
   }
 
@@ -1838,7 +1840,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *
    * @see #getShaahZmanis26Degrees()
    */
-  public getPlagHamincha26Degrees(): DateTime | null {
+  public getPlagHamincha26Degrees(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos26Degrees(), this.getTzais26Degrees());
   }
 
@@ -1855,7 +1857,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *
    * @see #getShaahZmanis18Degrees()
    */
-  public getPlagHamincha18Degrees(): DateTime | null {
+  public getPlagHamincha18Degrees(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos18Degrees(), this.getTzais18Degrees());
   }
 
@@ -1876,7 +1878,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getAlos16Point1Degrees()
    * @see #getSeaLevelSunset()
    */
-  public getPlagAlosToSunset(): DateTime | null {
+  public getPlagAlosToSunset(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos16Point1Degrees(), this.getElevationAdjustedSunset());
   }
 
@@ -1898,7 +1900,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getAlos16Point1Degrees()
    * @see #getTzaisGeonim7Point083Degrees()
    */
-  public getPlagAlos16Point1ToTzaisGeonim7Point083Degrees(): DateTime | null {
+  public getPlagAlos16Point1ToTzaisGeonim7Point083Degrees(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos16Point1Degrees(), this.getTzaisGeonim7Point083Degrees());
   }
 
@@ -1925,7 +1927,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #ZENITH_13_POINT_24
    * @see #getBainHasmashosRT58Point5Minutes()
    */
-  public getBainHasmashosRT13Point24Degrees(): DateTime | null {
+  public getBainHasmashosRT13Point24Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_13_POINT_24);
   }
 
@@ -1940,7 +1942,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    *
    */
-  public getBainHasmashosRT58Point5Minutes(): DateTime | null {
+  public getBainHasmashosRT58Point5Minutes(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getElevationAdjustedSunset(), 58.5 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -1955,7 +1957,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    * @see #getTzaisGeonim7Point083Degrees()
    */
-  public getBainHasmashosRT13Point5MinutesBefore7Point083Degrees(): DateTime | null {
+  public getBainHasmashosRT13Point5MinutesBefore7Point083Degrees(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_7_POINT_083), -13.5 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -1971,14 +1973,14 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         calculation, a null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar}
    *         documentation.
    */
-  public getBainHasmashosRT2Stars(): DateTime | null {
-    const alos19Point8: DateTime | null = this.getAlos19Point8Degrees();
-    const sunrise: DateTime | null = this.getElevationAdjustedSunrise();
+  public getBainHasmashosRT2Stars(): Temporal.ZonedDateTime | null {
+    const alos19Point8: Temporal.ZonedDateTime | null = this.getAlos19Point8Degrees();
+    const sunrise: Temporal.ZonedDateTime | null = this.getElevationAdjustedSunrise();
     if (alos19Point8 === null || sunrise === null) {
       return null;
     }
 
-    return ComplexZmanimCalendar.getTimeOffset(this.getElevationAdjustedSunset(), (sunrise.valueOf() - alos19Point8.valueOf()) * (5 / 18));
+    return ComplexZmanimCalendar.getTimeOffset(this.getElevationAdjustedSunset(), (sunrise.epochMilliseconds - alos19Point8.epochMilliseconds) * (5 / 18));
   }
 
   /**
@@ -1993,7 +1995,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    * @see #getBainHasmashosYereim3Point05Degrees()
    */
-  public getBainHasmashosYereim18Minutes(): DateTime | null {
+  public getBainHasmashosYereim18Minutes(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getElevationAdjustedSunset(), -18 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -2013,7 +2015,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #ZENITH_MINUS_3_POINT_05
    * @see #getBainHasmashosYereim18Minutes()
    */
-  public getBainHasmashosYereim3Point05Degrees(): DateTime | null {
+  public getBainHasmashosYereim3Point05Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_MINUS_3_POINT_05);
   }
 
@@ -2030,7 +2032,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *
    * @see #getBainHasmashosYereim2Point8Degrees()
    */
-  public getBainHasmashosYereim16Point875Minutes(): DateTime | null {
+  public getBainHasmashosYereim16Point875Minutes(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getElevationAdjustedSunset(), -16.875 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -2050,7 +2052,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #ZENITH_MINUS_2_POINT_8
    * @see #getBainHasmashosYereim16Point875Minutes()
    */
-  public getBainHasmashosYereim2Point8Degrees(): DateTime | null {
+  public getBainHasmashosYereim2Point8Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_MINUS_2_POINT_8);
   }
 
@@ -2067,7 +2069,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *
    * @see #getBainHasmashosYereim2Point1Degrees()
    */
-  public getBainHasmashosYereim13Point5Minutes(): DateTime | null {
+  public getBainHasmashosYereim13Point5Minutes(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getElevationAdjustedSunset(), -13.5 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -2087,7 +2089,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #ZENITH_MINUS_2_POINT_1
    * @see #getBainHasmashosYereim13Point5Minutes()
    */
-  public getBainHasmashosYereim2Point1Degrees(): DateTime | null {
+  public getBainHasmashosYereim2Point1Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_MINUS_2_POINT_1);
   }
 
@@ -2098,7 +2100,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @return the <code>Date</code> representing the time when the sun is 3.7&deg; below sea level.
    * @see #ZENITH_3_POINT_7
    */
-  public getTzaisGeonim3Point7Degrees(): DateTime | null {
+  public getTzaisGeonim3Point7Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_3_POINT_7);
   }
 
@@ -2109,7 +2111,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @return the <code>Date</code> representing the time when the sun is 3.8&deg; below sea level.
    * @see #ZENITH_3_POINT_8
    */
-  public getTzaisGeonim3Point8Degrees(): DateTime | null {
+  public getTzaisGeonim3Point8Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_3_POINT_8);
   }
 
@@ -2123,7 +2125,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar} documentation.
    * @see #ZENITH_5_POINT_95
    */
-  public getTzaisGeonim5Point95Degrees(): DateTime | null {
+  public getTzaisGeonim5Point95Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_5_POINT_95);
   }
 
@@ -2139,7 +2141,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar} documentation.
    * @see #ZENITH_3_POINT_65
    */
-  public getTzaisGeonim3Point65Degrees(): DateTime | null {
+  public getTzaisGeonim3Point65Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_3_POINT_65);
   }
 
@@ -2157,7 +2159,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    * @see #ZENITH_3_POINT_676
    */
-  public getTzaisGeonim3Point676Degrees(): DateTime | null {
+  public getTzaisGeonim3Point676Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_3_POINT_676);
   }
 
@@ -2173,7 +2175,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar} documentation.
    * @see #ZENITH_4_POINT_61
    */
-  public getTzaisGeonim4Point61Degrees(): DateTime | null {
+  public getTzaisGeonim4Point61Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_4_POINT_61);
   }
 
@@ -2189,7 +2191,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar} documentation.
    * @see #ZENITH_4_POINT_37
    */
-  public getTzaisGeonim4Point37Degrees(): DateTime | null {
+  public getTzaisGeonim4Point37Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_4_POINT_37);
   }
 
@@ -2208,7 +2210,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar} documentation.
    * @see #ZENITH_5_POINT_88
    */
-  public getTzaisGeonim5Point88Degrees(): DateTime | null {
+  public getTzaisGeonim5Point88Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_5_POINT_88);
   }
 
@@ -2225,7 +2227,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar} documentation.
    * @see #ZENITH_4_POINT_8
    */
-  public getTzaisGeonim4Point8Degrees(): DateTime | null {
+  public getTzaisGeonim4Point8Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_4_POINT_8);
   }
 
@@ -2244,7 +2246,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    * @see #ZENITH_6_POINT_45
    */
-  public getTzaisGeonim6Point45Degrees(): DateTime | null {
+  public getTzaisGeonim6Point45Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_6_POINT_45);
   }
 
@@ -2262,7 +2264,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    * @see #ZENITH_7_POINT_083
    */
-  public getTzaisGeonim7Point083Degrees(): DateTime | null {
+  public getTzaisGeonim7Point083Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_7_POINT_083);
   }
 
@@ -2291,7 +2293,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    * @see #ZENITH_7_POINT_67
    */
-  public getTzaisGeonim7Point67Degrees(): DateTime | null {
+  public getTzaisGeonim7Point67Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_7_POINT_67);
   }
 
@@ -2305,7 +2307,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar} documentation.
    * @see #ZENITH_8_POINT_5
    */
-  public getTzaisGeonim8Point5Degrees(): DateTime | null {
+  public getTzaisGeonim8Point5Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_8_POINT_5);
   }
 
@@ -2319,7 +2321,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         the Antarctic Circle where the sun may not reach low enough below the horizon for this calculation, a
    *         null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar} documentation.
    */
-  public getTzaisGeonim9Point3Degrees(): DateTime | null {
+  public getTzaisGeonim9Point3Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_9_POINT_3);
   }
 
@@ -2339,7 +2341,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *
    * @see #getTzais60()
    */
-  public getTzaisGeonim9Point75Degrees(): DateTime | null {
+  public getTzaisGeonim9Point75Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_9_POINT_75);
   }
 
@@ -2355,7 +2357,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         {@link AstronomicalCalendar} documentation.
    * @see #getAlos60()
    */
-  public getTzais60(): DateTime | null {
+  public getTzais60(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getElevationAdjustedSunset(), 60 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -2375,7 +2377,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getAteretTorahSunsetOffset()
    * @see #setAteretTorahSunsetOffset(double)
    */
-  public getTzaisAteretTorah(): DateTime | null {
+  public getTzaisAteretTorah(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getElevationAdjustedSunset(), this.getAteretTorahSunsetOffset() * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -2426,7 +2428,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #setAteretTorahSunsetOffset(double)
    * @see #getShaahZmanisAteretTorah()
    */
-  public getSofZmanShmaAteretTorah(): DateTime | null {
+  public getSofZmanShmaAteretTorah(): Temporal.ZonedDateTime | null {
     return this.getSofZmanShma(this.getAlos72Zmanis(), this.getTzaisAteretTorah());
   }
 
@@ -2449,7 +2451,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanisAteretTorah()
    * @see #setAteretTorahSunsetOffset(double)
    */
-  public getSofZmanTfilahAteretTorah(): DateTime | null {
+  public getSofZmanTfilahAteretTorah(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfila(this.getAlos72Zmanis(), this.getTzaisAteretTorah());
   }
 
@@ -2478,7 +2480,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         not set, a null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar}
    *         documentation.
    */
-  public getMinchaGedolaAteretTorah(): DateTime | null {
+  public getMinchaGedolaAteretTorah(): Temporal.ZonedDateTime | null {
     return this.getMinchaGedola(this.getAlos72Zmanis(), this.getTzaisAteretTorah());
   }
 
@@ -2505,7 +2507,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         not set, a null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar}
    *         documentation.
    */
-  public getMinchaKetanaAteretTorah(): DateTime | null {
+  public getMinchaKetanaAteretTorah(): Temporal.ZonedDateTime | null {
     return this.getMinchaKetana(this.getAlos72Zmanis(), this.getTzaisAteretTorah());
   }
 
@@ -2527,7 +2529,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #setAteretTorahSunsetOffset(double)
    * @see #getAteretTorahSunsetOffset()
    */
-  public getPlagHaminchaAteretTorah(): DateTime | null {
+  public getPlagHaminchaAteretTorah(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getAlos72Zmanis(), this.getTzaisAteretTorah());
   }
 
@@ -2570,7 +2572,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    * @see #getAlos72Zmanis()
    */
-  public getTzais72Zmanis(): DateTime | null {
+  public getTzais72Zmanis(): Temporal.ZonedDateTime | null {
     return this.getZmanisBasedOffset(1.2);
   }
 
@@ -2586,7 +2588,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         a null will be returned. A null will also be returned if 0 is passed in, since we can't tell if it is sunrise
    *         or sunset based. See detailed explanation on top of the {@link AstronomicalCalendar} documentation.
    */
-  private getZmanisBasedOffset(hours: number): DateTime | null {
+  private getZmanisBasedOffset(hours: number): Temporal.ZonedDateTime | null {
     const shaahZmanis: number = this.getShaahZmanisGra();
     if (shaahZmanis === Long_MIN_VALUE || hours === 0) {
       return null;
@@ -2608,7 +2610,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    * @see #getAlos90Zmanis()
    */
-  public getTzais90Zmanis(): DateTime | null {
+  public getTzais90Zmanis(): Temporal.ZonedDateTime | null {
     return this.getZmanisBasedOffset(1.5);
   }
 
@@ -2622,7 +2624,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    * @see #getAlos96Zmanis()
    */
-  public getTzais96Zmanis(): DateTime | null {
+  public getTzais96Zmanis(): Temporal.ZonedDateTime | null {
     return this.getZmanisBasedOffset(1.6);
   }
 
@@ -2641,7 +2643,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getTzais19Point8Degrees()
    * @see #getAlos90()
    */
-  public getTzais90(): DateTime | null {
+  public getTzais90(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getElevationAdjustedSunset(), 90 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -2659,7 +2661,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getTzais26Degrees()
    * @see #getAlos120()
    */
-  public getTzais120(): DateTime | null {
+  public getTzais120(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getElevationAdjustedSunset(), 120 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -2673,7 +2675,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    * @see #getAlos120Zmanis()
    */
-  public getTzais120Zmanis(): DateTime | null {
+  public getTzais120Zmanis(): Temporal.ZonedDateTime | null {
     return this.getZmanisBasedOffset(2);
   }
 
@@ -2691,7 +2693,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getTzais72()
    * @see #getAlos16Point1Degrees() for more information on this calculation.
    */
-  public getTzais16Point1Degrees(): DateTime | null {
+  public getTzais16Point1Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_16_POINT_1);
   }
 
@@ -2705,7 +2707,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getTzais120()
    * @see #getAlos26Degrees()
    */
-  public getTzais26Degrees(): DateTime | null {
+  public getTzais26Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_26_DEGREES);
   }
 
@@ -2718,7 +2720,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         explanation on top of the {@link AstronomicalCalendar} documentation.
    * @see #getAlos18Degrees()
    */
-  public getTzais18Degrees(): DateTime | null {
+  public getTzais18Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ASTRONOMICAL_ZENITH);
   }
 
@@ -2732,7 +2734,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getTzais90()
    * @see #getAlos19Point8Degrees()
    */
-  public getTzais19Point8Degrees(): DateTime | null {
+  public getTzais19Point8Degrees(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_19_POINT_8);
   }
 
@@ -2746,7 +2748,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         documentation.
    * @see #getAlos96()
    */
-  public getTzais96(): DateTime | null {
+  public getTzais96(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getElevationAdjustedSunset(), 96 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -2768,7 +2770,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @return the Date representing the local <em>chatzos</em>
    * @see GeoLocation#getLocalMeanTimeOffset()
    */
-  public getFixedLocalChatzos(): DateTime | null {
+  public getFixedLocalChatzos(): Temporal.ZonedDateTime | null {
     const geoLocation: GeoLocation = this.getGeoLocation();
     const rawOffsetHours = TimeZone.getRawOffset(geoLocation.getTimeZone()) / ComplexZmanimCalendar.HOUR_MILLIS;
     return ComplexZmanimCalendar.getTimeOffset(this.getDateFromTime(12 - rawOffsetHours, true),
@@ -2784,7 +2786,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getFixedLocalChatzos()
    * @see #getSofZmanTfilaFixedLocal()
    */
-  public getSofZmanShmaFixedLocal(): DateTime | null {
+  public getSofZmanShmaFixedLocal(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getFixedLocalChatzos(), -180 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -2796,7 +2798,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getFixedLocalChatzos()
    * @see #getSofZmanShmaFixedLocal()
    */
-  public getSofZmanTfilaFixedLocal(): DateTime | null {
+  public getSofZmanTfilaFixedLocal(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getFixedLocalChatzos(), -120 * ComplexZmanimCalendar.MINUTE_MILLIS);
   }
 
@@ -2819,13 +2821,13 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *            <em>alos</em> or <em>tzais</em> are null.
    * @return the <em>molad</em> based time. If the <em>zman</em> does not occur during the current date, null will be returned.
    */
-  private getMoladBasedTime(moladBasedTime: DateTime, alos: DateTime | null, tzais: DateTime | null, techila: boolean): DateTime | null {
-    const lastMidnight: DateTime = this.getMidnightLastNight();
-    const midnightTonight: DateTime = this.getMidnightTonight();
+  private getMoladBasedTime(moladBasedTime: Temporal.ZonedDateTime, alos: Temporal.ZonedDateTime | null, tzais: Temporal.ZonedDateTime | null, techila: boolean): Temporal.ZonedDateTime | null {
+    const lastMidnight: Temporal.ZonedDateTime = this.getMidnightLastNight();
+    const midnightTonight: Temporal.ZonedDateTime = this.getMidnightTonight();
 
-    if (!((moladBasedTime < lastMidnight) || (moladBasedTime > midnightTonight))) {
+    if (!((Temporal.ZonedDateTime.compare(moladBasedTime, lastMidnight) < 0) || (Temporal.ZonedDateTime.compare(moladBasedTime, midnightTonight) > 0))) {
       if (alos !== null || tzais !== null) {
-        return techila && !(moladBasedTime < tzais! || moladBasedTime > alos!)
+        return techila && !(Temporal.ZonedDateTime.compare(moladBasedTime, tzais!) < 0 || Temporal.ZonedDateTime.compare(moladBasedTime, alos!) > 0)
           ? tzais
           : alos;
       }
@@ -2856,7 +2858,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getSofZmanKidushLevana15Days(Date, Date)
    * @see JewishCalendar#getSofZmanKidushLevanaBetweenMoldos()
    */
-  public getSofZmanKidushLevanaBetweenMoldos(alos: DateTime | null = null, tzais: DateTime | null = null): DateTime | null {
+  public getSofZmanKidushLevanaBetweenMoldos(alos: Temporal.ZonedDateTime | null = null, tzais: Temporal.ZonedDateTime | null = null): Temporal.ZonedDateTime | null {
     const jewishCalendar: JewishCalendar = new JewishCalendar(this.getDate());
 
     // Do not calculate for impossible dates, but account for extreme cases. In the extreme case of Rapa Iti in French
@@ -2920,7 +2922,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getSofZmanKidushLevanaBetweenMoldos(Date, Date)
    * @see JewishCalendar#getSofZmanKidushLevana15Days()
    */
-  public getSofZmanKidushLevana15Days(alos: DateTime | null = null, tzais: DateTime | null = null): DateTime | null {
+  public getSofZmanKidushLevana15Days(alos: Temporal.ZonedDateTime | null = null, tzais: Temporal.ZonedDateTime | null = null): Temporal.ZonedDateTime | null {
     const jewishCalendar: JewishCalendar = new JewishCalendar(this.getDate());
 
     // Do not calculate for impossible dates, but account for extreme cases. In the extreme case of Rapa Iti in
@@ -2978,7 +2980,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getTchilasZmanKidushLevana7Days(Date, Date)
    * @see JewishCalendar#getTchilasZmanKidushLevana3Days()
    */
-  public getTchilasZmanKidushLevana3Days(alos: DateTime | null = null, tzais: DateTime | null = null): DateTime | null {
+  public getTchilasZmanKidushLevana3Days(alos: Temporal.ZonedDateTime | null = null, tzais: Temporal.ZonedDateTime | null = null): Temporal.ZonedDateTime | null {
     const jewishCalendar: JewishCalendar = new JewishCalendar();
     jewishCalendar.setGregorianDate(this.getDate().year, this.getDate().month - 1, this.getDate().day);
 
@@ -2991,7 +2993,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
       return null;
     }
 
-    let zman: DateTime | null = this.getMoladBasedTime(jewishCalendar.getTchilasZmanKidushLevana3Days(), alos, tzais, true);
+    let zman: Temporal.ZonedDateTime | null = this.getMoladBasedTime(jewishCalendar.getTchilasZmanKidushLevana3Days(), alos, tzais, true);
 
     // Get the following month's zman kiddush Levana for the extreme case of Rapa Iti in French Polynesia on Dec 2027 when
     // kiddush Levana can be said on Rosh Chodesh (the evening of the 30th). See Rabbi Dovid Heber's Shaarei Zmanim chapter 4 (page 32)
@@ -3043,7 +3045,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * see #getTchilasZmanKidushLevana7Days(Date, Date)
    * @see JewishCalendar#getMoladAsDate()
    */
-  public getZmanMolad(): DateTime | null {
+  public getZmanMolad(): Temporal.ZonedDateTime | null {
     const jewishCalendar: JewishCalendar = new JewishCalendar();
     jewishCalendar.setGregorianDate(this.getDate().year, this.getDate().month - 1, this.getDate().day);
 
@@ -3054,7 +3056,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
       return null;
     }
 
-    let molad: DateTime | null = this.getMoladBasedTime(jewishCalendar.getMoladAsDate(), null, null, true);
+    let molad: Temporal.ZonedDateTime | null = this.getMoladBasedTime(jewishCalendar.getMoladAsDate(), null, null, true);
 
     // deal with molad that happens on the end of the previous month
     if (molad === null && jewishCalendar.getJewishDayOfMonth() > 26) {
@@ -3069,13 +3071,10 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getMoladBasedTime(Date, Date, Date, boolean)
    * @return previous midnight
    */
-  private getMidnightLastNight(): DateTime {
+  private getMidnightLastNight(): Temporal.ZonedDateTime {
     // reset hour, minutes, seconds and millis
-    return this.getDate().set({
-      hour: 0,
-      minute: 0,
-      second: 0,
-      millisecond: 0,
+    return this.getDate().toZonedDateTime({
+      timeZone: this.getGeoLocation().getTimeZone(),
     });
   }
 
@@ -3084,14 +3083,11 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getMoladBasedTime(Date, Date, Date, boolean)
    * @return following midnight
    */
-  private getMidnightTonight(): DateTime {
+  private getMidnightTonight(): Temporal.ZonedDateTime {
     return this.getDate()
-      .plus({ days: 1 })
-      .set({
-        hour: 0,
-        minute: 0,
-        second: 0,
-        millisecond: 0,
+      .add({ days: 1 })
+      .toZonedDateTime({
+        timeZone: this.getGeoLocation().getTimeZone(),
       });
   }
 
@@ -3116,7 +3112,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getTchilasZmanKidushLevana7Days()
    * @see JewishCalendar#getTchilasZmanKidushLevana7Days()
    */
-  public getTchilasZmanKidushLevana7Days(alos: DateTime | null = null, tzais: DateTime | null = null): DateTime | null {
+  public getTchilasZmanKidushLevana7Days(alos: Temporal.ZonedDateTime | null = null, tzais: Temporal.ZonedDateTime | null = null): Temporal.ZonedDateTime | null {
     const jewishCalendar: JewishCalendar = new JewishCalendar(this.getDate());
 
     // Optimize to not calculate for impossible dates, but account for extreme cases. Tchilas zman kiddush Levana 7 days for
@@ -3164,7 +3160,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         where it does not set, a null will be returned. See detailed explanation on top of the
    *         {@link AstronomicalCalendar} documentation.
    */
-  public getSofZmanAchilasChametzGRA(): DateTime | null {
+  public getSofZmanAchilasChametzGRA(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfilaGRA();
   }
 
@@ -3185,7 +3181,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getAlos72()
    * @see #getSofZmanTfilaMGA72Minutes()
    */
-  public getSofZmanAchilasChametzMGA72Minutes(): DateTime | null {
+  public getSofZmanAchilasChametzMGA72Minutes(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfilaMGA72Minutes();
   }
 
@@ -3206,7 +3202,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getAlos16Point1Degrees()
    * @see #getSofZmanTfilaMGA16Point1Degrees()
    */
-  public getSofZmanAchilasChametzMGA16Point1Degrees(): DateTime | null {
+  public getSofZmanAchilasChametzMGA16Point1Degrees(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfilaMGA16Point1Degrees();
   }
 
@@ -3222,7 +3218,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         and one where it does not set, a null will be returned. See detailed explanation on top of the
    *         {@link AstronomicalCalendar} documentation.
    */
-  public getSofZmanBiurChametzGRA(): DateTime | null {
+  public getSofZmanBiurChametzGRA(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getElevationAdjustedSunrise(), this.getShaahZmanisGra() * 5);
   }
 
@@ -3241,7 +3237,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanisMGA()
    * @see #getAlos72()
    */
-  public getSofZmanBiurChametzMGA72Minutes(): DateTime | null {
+  public getSofZmanBiurChametzMGA72Minutes(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getAlos72(), this.getShaahZmanisMGA() * 5);
   }
 
@@ -3261,7 +3257,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getShaahZmanis16Point1Degrees()
    * @see #getAlos16Point1Degrees()
    */
-  public getSofZmanBiurChametzMGA16Point1Degrees(): DateTime | null {
+  public getSofZmanBiurChametzMGA16Point1Degrees(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getAlos16Point1Degrees(), this.getShaahZmanis16Point1Degrees() * 5);
   }
 
@@ -3275,11 +3271,11 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         does not set, a null will be returned. See detailed explanation on top of the
    *         {@link AstronomicalCalendar} documentation.
    */
-  public getSolarMidnight(): DateTime | null {
+  public getSolarMidnight(): Temporal.ZonedDateTime | null {
     const clonedCal: ZmanimCalendar = this.clone() as ZmanimCalendar;
-    clonedCal.setDate(clonedCal.getDate().plus({ days: 1 }));
-    const sunset: DateTime | null = this.getSeaLevelSunset();
-    const sunrise: DateTime | null = clonedCal.getSeaLevelSunrise();
+    clonedCal.setDate(clonedCal.getDate().add({ days: 1 }));
+    const sunset: Temporal.ZonedDateTime | null = this.getSeaLevelSunset();
+    const sunrise: Temporal.ZonedDateTime | null = clonedCal.getSeaLevelSunrise();
     return ComplexZmanimCalendar.getTimeOffset(sunset, this.getTemporalHour(sunset, sunrise) * 6);
   }
 
@@ -3318,7 +3314,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getSunsetBaalHatanya()
    * @see #ZENITH_1_POINT_583
    */
-  private getSunriseBaalHatanya(): DateTime | null {
+  private getSunriseBaalHatanya(): Temporal.ZonedDateTime | null {
     return this.getSunriseOffsetByDegrees(ComplexZmanimCalendar.ZENITH_1_POINT_583);
   }
 
@@ -3349,7 +3345,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    * @see #getSunriseBaalHatanya()
    * @see #ZENITH_1_POINT_583
    */
-  private getSunsetBaalHatanya(): DateTime | null {
+  private getSunsetBaalHatanya(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_1_POINT_583);
   }
 
@@ -3400,7 +3396,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         low enough below the horizon for this calculation, a null will be returned. See detailed explanation on
    *         top of the {@link AstronomicalCalendar} documentation.
    */
-  public getAlosBaalHatanya(): DateTime | null {
+  public getAlosBaalHatanya(): Temporal.ZonedDateTime | null {
     return this.getSunriseOffsetByDegrees(ComplexZmanimCalendar.ZENITH_16_POINT_9);
   }
 
@@ -3418,7 +3414,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         not rise, and one where it does not set, a null will be returned. See detailed explanation on top of the
    *         {@link AstronomicalCalendar} documentation.
    */
-  public getSofZmanShmaBaalHatanya(): DateTime | null {
+  public getSofZmanShmaBaalHatanya(): Temporal.ZonedDateTime | null {
     return this.getSofZmanShma(this.getSunriseBaalHatanya(), this.getSunsetBaalHatanya());
   }
 
@@ -3435,7 +3431,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         not set, a null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar}
    *         documentation.
    */
-  public getSofZmanTfilaBaalHatanya(): DateTime | null {
+  public getSofZmanTfilaBaalHatanya(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfila(this.getSunriseBaalHatanya(), this.getSunsetBaalHatanya());
   }
 
@@ -3453,7 +3449,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         where it does not set, a null will be returned. See detailed explanation on top of the
    *         {@link AstronomicalCalendar} documentation.
    */
-  public getSofZmanAchilasChametzBaalHatanya(): DateTime | null {
+  public getSofZmanAchilasChametzBaalHatanya(): Temporal.ZonedDateTime | null {
     return this.getSofZmanTfilaBaalHatanya();
   }
 
@@ -3469,7 +3465,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         and one where it does not set, a null will be returned. See detailed explanation on top of the
    *         {@link AstronomicalCalendar} documentation.
    */
-  public getSofZmanBiurChametzBaalHatanya(): DateTime | null {
+  public getSofZmanBiurChametzBaalHatanya(): Temporal.ZonedDateTime | null {
     return ComplexZmanimCalendar.getTimeOffset(this.getSunriseBaalHatanya(), this.getShaahZmanisBaalHatanya() * 5);
   }
 
@@ -3493,7 +3489,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         not set, a null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar}
    *         documentation.
    */
-  public getMinchaGedolaBaalHatanya(): DateTime | null {
+  public getMinchaGedolaBaalHatanya(): Temporal.ZonedDateTime | null {
     return this.getMinchaGedola(this.getSunriseBaalHatanya(), this.getSunsetBaalHatanya());
   }
 
@@ -3508,12 +3504,14 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         where the sun does not rise, and one where it does not set, a null will be returned. See detailed
    *         explanation on top of the {@link AstronomicalCalendar} documentation.
    */
-  public getMinchaGedolaBaalHatanyaGreaterThan30(): DateTime | null {
-    if (this.getMinchaGedola30Minutes() === null || this.getMinchaGedolaBaalHatanya() === null) {
+  public getMinchaGedolaBaalHatanyaGreaterThan30(): Temporal.ZonedDateTime | null {
+    const mg30 = this.getMinchaGedola30Minutes();
+    const mgBhT = this.getMinchaGedolaBaalHatanya();
+    if (mg30 === null || mgBhT === null) {
       return null;
     }
 
-    return DateTime.max(this.getMinchaGedola30Minutes()!, this.getMinchaGedolaBaalHatanya()!);
+    return Temporal.ZonedDateTime.compare(mg30!, mgBhT!) > 0 ? mg30 : mgBhT;
   }
 
   /**
@@ -3533,7 +3531,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         not set, a null will be returned. See detailed explanation on top of the {@link AstronomicalCalendar}
    *         documentation.
    */
-  public getMinchaKetanaBaalHatanya(): DateTime | null {
+  public getMinchaKetanaBaalHatanya(): Temporal.ZonedDateTime | null {
     return this.getMinchaKetana(this.getSunriseBaalHatanya(), this.getSunsetBaalHatanya());
   }
 
@@ -3549,7 +3547,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         does not set, a null will be returned. See detailed explanation on top of the
    *         {@link AstronomicalCalendar} documentation.
    */
-  public getPlagHaminchaBaalHatanya(): DateTime | null {
+  public getPlagHaminchaBaalHatanya(): Temporal.ZonedDateTime | null {
     return this.getPlagHamincha(this.getSunriseBaalHatanya(), this.getSunsetBaalHatanya());
   }
 
@@ -3564,7 +3562,7 @@ export class ComplexZmanimCalendar extends ZmanimCalendar {
    *         top of the {@link AstronomicalCalendar} documentation.
    * @see #ZENITH_6_DEGREES
    */
-  public getTzaisBaalHatanya(): DateTime | null {
+  public getTzaisBaalHatanya(): Temporal.ZonedDateTime | null {
     return this.getSunsetOffsetByDegrees(ComplexZmanimCalendar.ZENITH_6_DEGREES);
   }
 

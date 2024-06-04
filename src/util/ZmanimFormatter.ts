@@ -1,4 +1,4 @@
-import { DateTime } from 'luxon';
+import { Temporal } from 'temporal-polyfill';
 
 import { TimeZone, Utils, padZeros } from '../polyfills/Utils';
 import { Time } from './Time';
@@ -301,14 +301,14 @@ export class ZmanimFormatter {
    * @param dateTime - the date to format
    * @return the formatted String
    */
-  public formatDateTime(dateTime: DateTime): string {
+  public formatDateTime(dateTime: Temporal.ZonedDateTime): string {
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    const _dateTime = dateTime.setZone(this.getTimeZone());
+    const _dateTime = dateTime.with({ timeZone: this.getTimeZone() });
 
     if (this.dateFormat === ZmanimFormatter.XSD_DATE_FORMAT) {
       return this.getXSDateTime(_dateTime);
     }
-    return _dateTime.toFormat(this.dateFormat);
+    return _dateTime.toLocaleString(); // .toFormat(this.dateFormat);
   }
 
   /**
@@ -324,9 +324,10 @@ export class ZmanimFormatter {
    * @param dateTime - the UTC Date Object
    * @return the XSD dateTime
    */
-  public getXSDateTime(dateTime: DateTime): string {
-    return dateTime.setZone(this.getTimeZone())
-      .toFormat(ZmanimFormatter.XSD_DATE_FORMAT.concat('ZZ'));
+  public getXSDateTime(dateTime: Temporal.ZonedDateTime): string {
+    return dateTime.with({ timeZone: this.getTimeZone() }).toString();
+    // return dateTime.setZone(this.getTimeZone())
+    //  .toFormat(ZmanimFormatter.XSD_DATE_FORMAT.concat('ZZ'));
   }
 
   /**
@@ -511,20 +512,22 @@ export class ZmanimFormatter {
   }
 
   private static getOutputMetadata(astronomicalCalendar: AstronomicalCalendar): OutputMetadata {
-    const df: string = 'yyyy-MM-dd';
+    // const df: string = 'yyyy-MM-dd';
+
+    const timeZoneID = astronomicalCalendar.getGeoLocation().getTimeZone();
 
     return {
-      date: astronomicalCalendar.getDate().toFormat(df),
+      date: astronomicalCalendar.getDate().toString(), // .toFormat(df),
       type: astronomicalCalendar.getClassName(),
       algorithm: astronomicalCalendar.getAstronomicalCalculator().getCalculatorName(),
       location: astronomicalCalendar.getGeoLocation().getLocationName(),
       latitude: astronomicalCalendar.getGeoLocation().getLatitude().toString(),
       longitude: astronomicalCalendar.getGeoLocation().getLongitude().toString(),
       elevation: ZmanimFormatter.formatDecimal(astronomicalCalendar.getGeoLocation().getElevation()),
-      timeZoneName: TimeZone.getDisplayName(astronomicalCalendar.getGeoLocation().getTimeZone(), astronomicalCalendar.getDate()),
-      timeZoneID: astronomicalCalendar.getGeoLocation().getTimeZone(),
-      timeZoneOffset: ZmanimFormatter.formatDecimal(TimeZone.getOffset(astronomicalCalendar.getGeoLocation().getTimeZone(),
-        astronomicalCalendar.getDate().valueOf()) / ZmanimFormatter.HOUR_MILLIS),
+      // timeZoneName: TimeZone.getDisplayName(timeZoneID, astronomicalCalendar.getDate()),
+      timeZoneID,
+      timeZoneOffset: ZmanimFormatter.formatDecimal(TimeZone.getOffset(timeZoneID,
+        astronomicalCalendar.getDate().toZonedDateTime({ timeZone: timeZoneID }).epochMilliseconds) / ZmanimFormatter.HOUR_MILLIS),
     };
   }
 
@@ -550,14 +553,14 @@ export class ZmanimFormatter {
         value: (astronomicalCalendar as any as Record<string, Function>)[method].call(astronomicalCalendar),
       }))
       // Filter for return values of type Date or number
-      .filter(methodObj => DateTime.isDateTime(methodObj.value) || typeof methodObj.value === 'number' || methodObj.value === null)
+      .filter(methodObj => methodObj.value instanceof Temporal.ZonedDateTime || typeof methodObj.value === 'number' || methodObj.value === null)
       // Separate the Dates and numbers
       .forEach(methodObj => {
         const tagName: string = methodObj.methodName.substring(3);
-        if (DateTime.isDateTime(methodObj.value)) {
+        if (methodObj.value instanceof Temporal.ZonedDateTime) {
           // dateList.add(new KosherZmanim.Zman(methodObj.value, tagName));
           const zman: ZmanWithZmanDate = {
-            zman: methodObj.value as DateTime,
+            zman: methodObj.value as Temporal.ZonedDateTime,
             label: tagName,
           };
           dateList.push(zman);
@@ -626,7 +629,7 @@ export interface OutputMetadata {
   latitude: string;
   longitude: string;
   elevation: string;
-  timeZoneName: string;
+  // timeZoneName: string;
   timeZoneID: string;
   timeZoneOffset: string;
 }
