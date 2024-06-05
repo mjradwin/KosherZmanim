@@ -7,9 +7,9 @@
   "bugs": "BehindTheMath/KosherZmanim/issues",
   "homepage": "https://github.com/BehindTheMath/KosherZmanim",
   "repository": "BehindTheMath/KosherZmanim",
-  "main": "dist/lib-cjs/kosher-zmanim.js",
-  "types": "dist/types/kosher-zmanim.d.ts",
-  "module": "dist/lib-es6/kosher-zmanim.js",
+  "main": "dist/lib-cjs/ComplexZmanimCalendar.js",
+  "types": "dist/types/ComplexZmanimCalendar.d.ts",
+  "module": "dist/lib-es6/ComplexZmanimCalendar.js",
   "scripts": {
     "clean": "rimraf ./dist/*",
     "build": "npm run clean && npm run build:all && npm run webpack",
@@ -29,7 +29,7 @@
     "kosher-zmanim",
     "kosherjava"
   ],
-  "unpkg": "dist/kosher-zmanim.min.js",
+  "unpkg": "dist/ComplexZmanimCalendar.min.js",
   "files": [
     "dist/*"
   ],
