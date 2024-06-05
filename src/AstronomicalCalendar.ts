@@ -762,12 +762,12 @@ export class AstronomicalCalendar {
       this.date = date;
     } else if (date instanceof Date) {
       const instant = Temporal.Instant.fromEpochMilliseconds(date.getTime());
-      this.date = instant.toZonedDateTimeISO('UTC').toPlainDate();
+      this.date = instant.toZonedDateTimeISO(this.geoLocation.getTimeZone()).toPlainDate();
     } else if (typeof date === 'string') {
       this.date = Temporal.PlainDate.from(date);
     } else if (typeof date === 'number') {
       const instant = Temporal.Instant.fromEpochMilliseconds(date);
-      this.date = instant.toZonedDateTimeISO('UTC').toPlainDate();
+      this.date = instant.toZonedDateTimeISO(this.geoLocation.getTimeZone()).toPlainDate();
     }
   }
 

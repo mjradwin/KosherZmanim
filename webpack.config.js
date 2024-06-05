@@ -6,8 +6,8 @@ module.exports = {
   devtool: 'source-map',
   context: __dirname,
   entry: {
-    "ComplexZmanimCalendar": "./src/ComplexZmanimCalendar.ts",
-    "ComplexZmanimCalendar.min": "./src/ComplexZmanimCalendar.ts",
+    "index": "./src/index.ts",
+    "index.min": "./src/index.ts",
   },
   output: {
     filename: "[name].js",
