@@ -45,58 +45,72 @@ describe('Test AstronomicalCalendar', function () {
   it('getSunrise', () => {
     const noaa = makeZmanWithElevation();
     const zdt = noaa.getSunrise();
-    assert.strictEqual((zdt as Temporal.ZonedDateTime).toString(),
+    assert.strictEqual(zdt!.toString(),
       '2020-06-05T05:24:30.501-06:00[America/Denver]');
+    assert.deepEqual(zdt!.getISOFields(), {
+      calendar: 'iso8601',
+      isoDay: 5,
+      isoHour: 5,
+      isoMicrosecond: 0,
+      isoMillisecond: 501,
+      isoMinute: 24,
+      isoMonth: 6,
+      isoNanosecond: 0,
+      isoSecond: 30,
+      isoYear: 2020,
+      offset: '-06:00',
+      timeZone: 'America/Denver',
+    });
   });
 
   it('getSeaLevelSunrise', () => {
     const noaa = makeZmanWithElevation();
     const zdt = noaa.getSeaLevelSunrise();
-    assert.strictEqual((zdt as Temporal.ZonedDateTime).toString(),
+    assert.strictEqual(zdt!.toString(),
       '2020-06-05T05:32:26.007-06:00[America/Denver]');
   });
 
   it('getSunset', () => {
     const noaa = makeZmanWithElevation();
     const zdt = noaa.getSunset();
-    assert.strictEqual((zdt as Temporal.ZonedDateTime).toString(),
+    assert.strictEqual(zdt!.toString(),
       '2020-06-05T20:32:57.848-06:00[America/Denver]');
   });
 
   it('getSeaLevelSunset', () => {
     const noaa = makeZmanWithElevation();
     const zdt = noaa.getSeaLevelSunset();
-    assert.strictEqual((zdt as Temporal.ZonedDateTime).toString(),
+    assert.strictEqual(zdt!.toString(),
       '2020-06-05T20:25:01.588-06:00[America/Denver]');
   });
 
   it('getSunriseOffsetByDegrees', () => {
     const noaa = makeZmanWithElevation();
     const zdt1 = noaa.getSunriseOffsetByDegrees(90 + 16.1);
-    assert.strictEqual((zdt1 as Temporal.ZonedDateTime).toString(),
+    assert.strictEqual(zdt1!.toString(),
       '2020-06-05T03:48:37.581-06:00[America/Denver]');
     const zdt2 = noaa.getSunriseOffsetByDegrees(90 + 11.5);
-    assert.strictEqual((zdt2 as Temporal.ZonedDateTime).toString(),
+    assert.strictEqual(zdt2!.toString(),
       '2020-06-05T04:23:08.923-06:00[America/Denver]');
     const zdt3 = noaa.getSunriseOffsetByDegrees(90 + 10.2);
-    assert.strictEqual((zdt3 as Temporal.ZonedDateTime).toString(),
+    assert.strictEqual(zdt3!.toString(),
       '2020-06-05T04:32:14.456-06:00[America/Denver]');
   });
 
   it('getSunsetOffsetByDegrees', () => {
     const noaa = makeZmanWithElevation();
     const zdt1 = noaa.getSunsetOffsetByDegrees(90 + 7.083);
-    assert.strictEqual((zdt1 as Temporal.ZonedDateTime).toString(),
+    assert.strictEqual(zdt1!.toString(),
       '2020-06-05T21:04:21.276-06:00[America/Denver]');
     const zdt2 = noaa.getSunsetOffsetByDegrees(90 + 8.5);
-    assert.strictEqual((zdt2 as Temporal.ZonedDateTime).toString(),
+    assert.strictEqual(zdt2!.toString(),
       '2020-06-05T21:13:45.311-06:00[America/Denver]');
   });
 
   it('getSunTransit', () => {
     const noaa = makeZmanWithElevation();
     const zdt = noaa.getSunTransit();
-    assert.strictEqual((zdt as Temporal.ZonedDateTime).toString(),
+    assert.strictEqual(zdt!.toString(),
       '2020-06-05T12:58:43.797-06:00[America/Denver]');
   });
 });
